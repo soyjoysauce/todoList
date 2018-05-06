@@ -1,28 +1,71 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    height: 100vh;
+  margin: 0;
+  height: 100vh;
 }
 
-#todoTasks , #userMetaData {
-    float:left;
-    border: 1px solid black;
-    height: 100%;
+#todoTasks,
+#userMetaData {
+  float: left;
+  border: 1px solid black;
+  height: 100%;
 }
 
 #todoTasks {
-    width: 50%;
+  width: 50%;
 }
 
 #userMetaData {
-    width : 50%;
+  width: 50%;
 }
 
 #userSection {
-    background-color: bisque;
-    height: 10%;
+  background-color: bisque;
+  height: 20%;
 }
 
+.todoTask {
+  position: relative;
+  height: 10%;
+  
+}
+
+.todoTask::after {
+  content: '';
+  border-bottom: 1px solid black;
+  width: 50%;
+  left: 10%;
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+}
+
+.todoTask .title {
+    float: left;
+    width: 70%;
+    border: 1px solid blue;
+    font-size: 1.2em;
+    font-weight: bold;  
+
+}
+.todoTask .date {
+    float : left;
+    width: 30%;
+    border: 1px solid green
+}
+
+.todoTask .description {
+    float : left;
+    width:50%;
+    border: 1px solid orangered;
+}
+
+.todoTask .controls {
+    float : right;
+    width:50%;
+    border: 1px solid teal;
+
+}
