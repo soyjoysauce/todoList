@@ -1,32 +1,3 @@
-var data = {
-  tasks: [
-    {
-      title: "buy eggs",
-      description: "buy dozen eggs from store",
-      dueDate: "6-1-2018 5:00pm",
-      completed: false
-    },
-    {
-      title: "rotate tires",
-      description: "tires at auto shop",
-      dueDate: "6-6-2018 5:00pm",
-      completed: false
-    },
-    {
-      title: "change oil",
-      description: "change the oil",
-      dueDate: "6-10-2018 5:00pm",
-      completed: false
-    }
-  ],
-  user: {
-    id: 7,
-    firstName: "Soy",
-    lastName: "Bae",
-    avatar: "images/icon.png"
-  }
-};
-
 $(document).ready(initializeApp);
 
 function initializeApp() {
@@ -102,7 +73,19 @@ function renderAllTasks(taskArray) {
 // input : none
 // output : none
 function getTaskDataAndRender() {
-  renderAllTasks(data.tasks);
+    $.ajax ({
+        url: 'dummyData/read.json',
+        dataType: 'json',
+        method : 'get',
+        success : function(response) {
+            if(response.tasks.length > 0){
+                renderAllTasks(response.tasks);
+            } 
+        },
+        error : function(){
+            console.log('error - something went wrong');
+        }
+    })
 }
 /* take the text in the description and shorten their length when rendered to DOM
 make sure that when hover over or click you can see the full text */
